@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class DetailsActivity extends AppCompatActivity {
 
     Task task;
@@ -25,10 +28,12 @@ public class DetailsActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.description);
         TextView expirationDate = findViewById(R.id.ExpirationDate);
         Switch doneSwitch = findViewById(R.id.SwitchInDetails);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        String expirationDateString = formatter.format(task.getDate());
 
         title.setText("Title :"+"\n"+task.getTitle());
         description.setText("Description :"+"\n"+task.getDescription());
-        expirationDate.setText("Expiration Date :"+"\n"+task.getExpirationDate());
+        expirationDate.setText("Expiration Date :"+"\n"+expirationDateString);
 
         doneSwitch.setChecked(task.done);
 

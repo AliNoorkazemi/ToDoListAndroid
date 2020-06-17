@@ -1,32 +1,33 @@
 package com.example.to_do_list;
 
-import androidx.annotation.Nullable;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Task implements Serializable {
 
     private String title;
     private String description;
     boolean done;
-    private String expirationDate;
+    private Date date;
 
-    Task(String title, String description, String expirationDate) {
+
+    Task(String title, String description, boolean done, Date date) {
         this.title = title;
         this.description = description;
-        this.expirationDate = expirationDate;
-        this.done=false;
+        this.done = done;
+        this.date = date;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getDescription() {
-        return description;
+    public Date getDate() {
+        return date;
     }
 
-    public String getExpirationDate() {
-        return expirationDate;
+    public String getDescription() {
+        return description;
     }
 }

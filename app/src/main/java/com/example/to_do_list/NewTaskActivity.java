@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -12,7 +13,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class NewTaskActivity extends AppCompatActivity {
 
@@ -60,7 +65,14 @@ public class NewTaskActivity extends AppCompatActivity {
                 }else if(MainActivity.titles.contains(title)){
                     Toast.makeText(NewTaskActivity.this, "Title has been already existed", Toast.LENGTH_SHORT).show();
                 }else{
-                    Task newTask = new Task(title,description,expirationDate);
+                    DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+                    Date date=null;
+                    try {
+                        date = formatter.parse(expirationDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    Task newTask = new Task(title,description,false,date);
                     MainActivity.titles.add(newTask.getTitle());
                     Intent intent = new Intent();
                     intent.putExtra("New Task",newTask);
