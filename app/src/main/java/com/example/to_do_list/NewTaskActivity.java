@@ -62,7 +62,7 @@ public class NewTaskActivity extends AppCompatActivity {
                     Toast.makeText(NewTaskActivity.this,"Title must be filled",Toast.LENGTH_SHORT).show();
                 }else if(expirationDate.equals("")){
                     Toast.makeText(NewTaskActivity.this,"Expiration date must be filled",Toast.LENGTH_SHORT).show();
-                }else if(MainActivity.titles.contains(title)){
+                }else if(HomeActivity.titles.contains(title)){
                     Toast.makeText(NewTaskActivity.this, "Title has been already existed", Toast.LENGTH_SHORT).show();
                 }else{
                     DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
@@ -73,7 +73,7 @@ public class NewTaskActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     Task newTask = new Task(title,description,false,date);
-                    MainActivity.titles.add(newTask.getTitle());
+                    HomeActivity.titles.add(newTask.getTitle());
                     Intent intent = new Intent();
                     intent.putExtra("New Task",newTask);
                     setResult(1,intent);
