@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:hint="Title"
+        android:hint="@string/title"
         android:inputType="text"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
@@ -22,20 +22,20 @@
         android:layout_width="match_parent"
         android:layout_height="175dp"
         android:layout_marginTop="72dp"
-        android:hint="Description"
+        android:hint="@string/description"
         android:inputType="textMultiLine"
         app:layout_constraintTop_toBottomOf="@+id/titleEdit"
         tools:layout_editor_absoluteX="3dp" />
 
     <EditText
         android:id="@+id/ExpirationDateEdit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:hint="Expiration Date"
-        android:inputType="date"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionEdit"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_marginTop="100dp"
+        android:hint="@string/expiration_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionEdit" />
 
     <Button
         android:id="@+id/checkButton"
