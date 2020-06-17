@@ -3,6 +3,7 @@ package com.example.to_do_list;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,12 +44,16 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter {
 
         if(task.done){
             tvh.doneSwitch.setChecked(true);
-            finalConvertView.setBackgroundResource(R.color.background);
-            tvh.titleView.setTextColor(Color.parseColor("#FFFFFF"));
+            if(!task.isExpire()){
+                finalConvertView.setBackgroundResource(R.color.background);
+                tvh.titleView.setTextColor(Color.parseColor("#FFFFFF"));
+            }
         }else{
             tvh.doneSwitch.setChecked(false);
-            finalConvertView.setBackgroundResource(R.color.white);
-            tvh.titleView.setTextColor(Color.parseColor("#006F75"));
+            if(!task.isExpire()){
+                finalConvertView.setBackgroundResource(R.color.white);
+                tvh.titleView.setTextColor(Color.parseColor("#006F75"));
+            }
         }
 
 
@@ -57,15 +62,24 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     task.done=true;
-                    finalConvertView.setBackgroundResource(R.color.background);
-                    tvh.titleView.setTextColor(Color.parseColor("#FFFFFF"));
+                    if(!task.isExpire()){
+                        finalConvertView.setBackgroundResource(R.color.background);
+                        tvh.titleView.setTextColor(Color.parseColor("#FFFFFF"));
+                    }
                 }else{
                     task.done=false;
-                    finalConvertView.setBackgroundResource(R.color.white);
-                    tvh.titleView.setTextColor(Color.parseColor("#006F75"));
+                    if(!task.isExpire()){
+                        finalConvertView.setBackgroundResource(R.color.white);
+                        tvh.titleView.setTextColor(Color.parseColor("#006F75"));
+                    }
                 }
             }
         });
+
+        if (task.isExpire()){
+            finalConvertView.setBackgroundResource(R.color.red);
+            tvh.titleView.setTextColor(Color.parseColor("#FFFFFF"));
+        }
 
         tvh.titleView.setOnClickListener(new View.OnClickListener() {
             @Override
