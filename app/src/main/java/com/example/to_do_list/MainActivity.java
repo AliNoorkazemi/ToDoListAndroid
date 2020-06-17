@@ -24,14 +24,11 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<String> titles = new ArrayList<>();
     private RecyclerView recyclerView;
     private TaskRecyclerViewAdapter adapter;
-    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        this.bundle = savedInstanceState;
 
         Button addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
