@@ -16,7 +16,7 @@ public class NewTaskActivity extends AppCompatActivity {
         setContentView(R.layout.create_new_task_layout);
 
         final EditText titleEdit = findViewById(R.id.titleEdit);
-        final  EditText descriptionEdit = findViewById(R.id.descriptionEdit);
+        final EditText descriptionEdit = findViewById(R.id.descriptionEdit);
         final EditText expirationDateEdit = findViewById(R.id.ExpirationDateEdit);
 
         Button checkButton = findViewById(R.id.checkButton);
@@ -43,5 +43,13 @@ public class NewTaskActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("New Task", (String) null);
+        setResult(1,intent);
+        finish();
     }
 }

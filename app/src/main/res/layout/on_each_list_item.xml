@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="100"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/itemView"
-    android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/titleOnEach"
-        android:layout_width="157dp"
-        android:layout_height="100dp"
-        android:layout_weight="92"
+        android:layout_width="310dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="6dp"
         android:textColor="#006F75"
-        android:textSize="37sp" />
+        android:textSize="34sp" />
 
     <Switch
         android:id="@+id/switchDone"
-        android:text="Done:"
-        android:thumbTint="#05836D"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_weight="8"/>
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="15dp"
+        android:text="@string/done"
+        android:thumbTint="#05836D" />
 
-</LinearLayout>
+</RelativeLayout>
