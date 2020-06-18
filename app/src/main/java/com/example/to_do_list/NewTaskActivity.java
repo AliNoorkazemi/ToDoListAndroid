@@ -66,12 +66,13 @@ public class NewTaskActivity extends AppCompatActivity {
                     Toast.makeText(NewTaskActivity.this, "Title has been already existed", Toast.LENGTH_SHORT).show();
                 }else{
                     DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-                    Date date=null;
+                    Date date = null;
                     try {
                         date = formatter.parse(expirationDate);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+
                     Task newTask = new Task(title,description,false,date);
                     HomeActivity.titles.add(newTask.getTitle());
                     Intent intent = new Intent();

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:backgroundTint="@color/colorPrimary"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity" >
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="169dp"
         android:layout_height="190dp"
         android:gravity="center"
-        android:textColor="@color/background"
+        android:textColor="#004D40"
         android:textStyle="bold"
         android:text="@string/welcome_to_to_do_list_app"
         android:textSize="25sp"

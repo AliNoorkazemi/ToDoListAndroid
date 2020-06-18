@@ -1,6 +1,5 @@
 package com.example.to_do_list;
 
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -36,15 +35,13 @@ public class Task implements Serializable {
     }
 
     public boolean isExpire(){
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-        Date time = Calendar.getInstance().getTime();
-        String current_date_string = formatter.format(time);
-        Date current_date = null;
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        Date current_date= null;
         try {
-            current_date = formatter.parse(current_date_string);
+            current_date = formatter.parse(formatter.format(new Date()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return this.getDate().compareTo(current_date)<0;
+        return current_date.after(this.date);
     }
 }
